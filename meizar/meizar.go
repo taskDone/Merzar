@@ -17,13 +17,6 @@ import (
 	"time"
 )
 
-var (
-	mysql_host = "10.173.32.9"
-	mysql_user = "taskdone"
-	mysql_pwd  = "wangfei808"
-	mysql_db   = "meizi"
-)
-
 func New(dir string, startPage int, r rule.Rule, cookie string, client *http.Client, pageSort int, s store.Store) *Meizar {
 	return &Meizar{dir: dir, currentPage: startPage, userCookie: cookie, r: r, client: client, pageSort: pageSort, s: s}
 }
@@ -45,7 +38,12 @@ func (p *Meizar) Start() {
 			panic("can not mkdir " + p.dir)
 		}
 	}
-	connectionString := mysql_user + ":" + mysql_pwd + "@tcp(" + mysql_host + "):3306/" + mysql_db + "?charset=utf8"
+	mysql_host := "10.173.32.9"
+	mysql_user := "taskdone"
+	mysql_pwd := "wangfei808"
+	mysql_db := "meizi"
+
+	connectionString := (mysql_user + ":" + mysql_pwd + "@tcp(" + mysql_host + "):3306/" + mysql_db + "?charset=utf8")
 	fmt.Println("connection " + connectionString)
 	db, err := sql.Open("mysql", connectionString)
 	if err != nil {
