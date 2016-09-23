@@ -39,6 +39,7 @@ type Meizar struct {
 }
 
 func (p *Meizar) Start() {
+	fmt.Println("start...")
 	if !p.isExist(p.dir) {
 		if err := os.Mkdir(p.dir, 0777); err != nil {
 			panic("can not mkdir " + p.dir)
