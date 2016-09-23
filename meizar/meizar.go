@@ -45,7 +45,7 @@ func (p *Meizar) Start() {
 		}
 	}
 	connectionString := mysql_user + ":" + mysql_pwd + "@tcp(" + mysql_host + "):3306/" + mysql_db + "?charset=utf8"
-	fmt.Println(connectionString)
+	fmt.Println("connection " + connectionString)
 	db, err := sql.Open("mysql", connectionString)
 	if err != nil {
 		panic("mysql error " + err)
