@@ -39,7 +39,7 @@ func (p *Meizar) Start() {
 		}
 	}
 
-	connectionString := "taskdone:wangfei808@tcp(10.173.32.9):3306/meizi?charset=utf8"
+	connectionString := "taskdone:wangfei808@tcp(10.173.32.9)/meizi?charset=utf8"
 	fmt.Println("connection " + connectionString)
 	db, err := sql.Open("mysql", connectionString)
 	if err != nil {
